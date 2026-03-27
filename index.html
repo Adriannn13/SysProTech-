@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SysProTech | Turning Complexity into Clarity</title>
+
+    <link rel="icon" type="image/png" href="images/sysprotechlogo.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        .nav-link:hover { color: #3b82f6; transition: 0.3s; }
+        .hero-gradient { background: linear-gradient(135deg, #111827 0%, #1f2937 100%); }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300">
+
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm dark:bg-slate-900/90 dark:shadow-slate-800/50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+            
+                <div class="flex items-center gap-3 group cursor-pointer">
+                    <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-200 group-hover:bg-blue-700 transition-all duration-300">
+                        <i class="bi bi-cpu text-white text-xl"></i>
+                    </div>
+                    <h1 class="text-2xl font-black tracking-tighter">
+                        <span class="text-blue-600">SysPro</span><span class="text-gray-900 group-hover:text-blue-600 transition-colors duration-300 dark:text-white">Tech</span>
+                    </h1>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-sm font-semibold text-gray-600 hover:text-blue-600 transition-colors dark:text-slate-300 dark:hover:text-blue-400">Home</a>
+                    <a href="#projects" class="text-sm font-semibold text-gray-600 hover:text-blue-600 transition-colors dark:text-slate-300 dark:hover:text-blue-400">Projects</a>
+                    <a href="#services" class="text-sm font-semibold text-gray-600 hover:text-blue-600 transition-colors dark:text-slate-300 dark:hover:text-blue-400">Services</a>
+                
+                    <div class="relative group py-4">
+                        <a href="#about" class="text-sm font-semibold text-gray-600 hover:text-blue-600 transition-colors flex items-center gap-1 dark:text-slate-300 dark:hover:text-blue-400">
+                            About Us <i class="bi bi-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+                        </a>
+                        <div class="absolute top-[100%] left-0 w-[300px] bg-white rounded-xl shadow-2xl border border-gray-100 p-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-[9999] dark:bg-slate-800 dark:border-slate-700">
+                            <p class="text-[10px] font-bold text-blue-600 uppercase tracking-widest">Specialist Advantage</p>
+                            <h5 class="text-lg font-black text-gray-900 mt-1 dark:text-white">Why Partner with Us?</h5>
+                            <ul class="list-none p-0 space-y-2 mt-3">
+                                <li><a href="why-choose-us.html" class="text-xs text-gray-500 hover:text-blue-600 block p-2 rounded-lg hover:bg-blue-50 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-blue-400">Boutique Agility</a></li>
+                                <li><a href="why-choose-us.html" class="text-xs text-gray-500 hover:text-blue-600 block p-2 rounded-lg hover:bg-blue-50 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-blue-400">Custom Automation</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <a href="#Team" class="text-sm font-semibold text-gray-600 hover:text-blue-600 transition-colors dark:text-slate-300 dark:hover:text-blue-400">Our Team</a>
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <button id="darkModeToggle" class="p-2.5 rounded-xl text-gray-600 hover:bg-gray-100 hover:text-blue-600 transition-all dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-blue-400">
+                        <i class="bi bi-moon-stars-fill hidden dark:block"></i>
+                        <i class="bi bi-sun-fill dark:hidden"></i>
+                    </button>
+                
+                    <a href="#contact" class="hidden sm:block bg-blue-600 text-white px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-blue-700 hover:shadow-lg transition-all active:scale-95">
+                        Contact Us
+                    </a>
+
+                    <button id="mobileMenuBtn" class="md:hidden p-2.5 rounded-xl text-gray-600 hover:bg-gray-100 hover:text-blue-600 transition-all dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-blue-400">
+                        <div id="hamburgerIcon" class="relative w-6 h-5 pointer-events-none">
+                            <span class="absolute left-0 top-0 w-full h-0.5 bg-current rounded-full transition-all duration-300 origin-left"></span>
+                            <span class="absolute left-0 top-1/2 -translate-y-1/2 w-full h-0.5 bg-current rounded-full transition-all duration-300"></span>
+                            <span class="absolute left-0 bottom-0 w-full h-0.5 bg-current rounded-full transition-all duration-300 origin-left"></span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden overflow-hidden transition-all duration-300 ease-in-out">
+                <div class="py-6 space-y-2 border-t border-gray-100 dark:border-slate-800 mt-4">
+                    <a href="#home" class="mobile-nav-link flex items-center gap-3">
+                        <i class="bi bi-house text-lg text-blue-600"></i> Home
+                    </a>
+                    <a href="#projects" class="mobile-nav-link flex items-center gap-3">
+                        <i class="bi bi-grid-1x2 text-lg text-blue-600"></i> Projects
+                    </a>
+                    <a href="#services" class="mobile-nav-link flex items-center gap-3">
+                        <i class="bi bi-cpu text-lg text-blue-600"></i> Services
+                    </a>
+                    <div class="pt-4 pb-2">
+                        <p class="px-4 text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2 dark:text-slate-500">Specialist Advantage</p>
+                        <a href="why-choose-us.html" class="mobile-nav-link flex items-center gap-3 !py-2 !text-sm">
+                            <i class="bi bi-arrow-right-short text-blue-600"></i> Boutique Agility
+                        </a>
+                        <a href="why-choose-us.html" class="mobile-nav-link flex items-center gap-3 !py-2 !text-sm">
+                            <i class="bi bi-arrow-right-short text-blue-600"></i> Custom Automation
+                        </a>
+                    </div>
+                    <a href="#Team" class="mobile-nav-link flex items-center gap-3">
+                        <i class="bi bi-people text-lg text-blue-600"></i> Our Team
+                    </a>
+                    <a href="#contact" class="block w-full text-center bg-blue-600 text-white px-6 py-4 rounded-xl font-bold text-lg mt-6 shadow-xl shadow-blue-500/20 active:scale-95 transition-all">
+                        Contact Us <i class="bi bi-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <style>
+        /* Helper for mobile links to keep HTML clean */
+        .mobile-nav-link {
+            @apply block px-4 py-3 text-base font-semibold text-gray-600 hover:bg-gray-50 hover:text-blue-600 rounded-xl transition-colors dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-blue-400;
+        }
+    
+        /* Animation for Hamburger to X */
+        .open span:nth-child(1) { transform: rotate(45deg); width: 1.5rem; }
+        .open span:nth-child(2) { opacity: 0; }
+        .open span:nth-child(3) { transform: rotate(-45deg); width: 1.5rem; }
+    </style>
+    
+    <section id="home" class="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#0a0f1a]">
+    
+        <div class="absolute inset-0 z-0">
+            <video 
+                autoplay 
+                muted 
+                loop 
+                playsinline 
+                class="absolute inset-0 w-full h-full object-cover opacity-40">
+                <source src="vid/sysprotech.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <div class="absolute inset-0 bg-gradient-to-b from-[#0a0f1a]/80 via-[#0a0f1a]/40 to-[#0a0f1a]"></div>
+
+            <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/20 rounded-full blur-[120px] animate-pulse"></div>
+            <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-600/10 rounded-full blur-[120px]"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <br>
+            <div class="inline-flex items-center space-x-2 bg-blue-600/10 border border-blue-500/20 px-4 py-2 rounded-full mb-8">
+                <span class="relative flex h-3 w-3">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
+                </span>
+
+                <span class="text-blue-400 text-xs font-bold uppercase tracking-widest">Next-Gen Startup Solutions</span>
+            </div>
+
+            <h2 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
+                Smart Systems,<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">
+                     Built Better.
+                </span>
+            </h2>
+
+            <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-3xl mx-auto leading-relaxed">
+                "We’re a team of nine developers dedicated to building web systems that actually work for you. Whether it’s streamlining clinic appointments or simplifying complex supply chains, we take your toughest digital challenges and turn them into clean, easy-to-use solutions."
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#contact" class="w-full sm:w-auto bg-blue-600 text-white px-10 py-4 rounded-xl text-lg font-bold hover:bg-blue-500 hover:shadow-[0_0_20px_rgba(37,99,235,0.4)] transition-all duration-300 no-underline">
+                    Get in Touch
+                </a>
+                <a href="#Team" class="w-full sm:w-auto bg-white/5 text-white border border-white/10 px-10 py-4 rounded-xl text-lg font-bold hover:bg-white/10 transition-all no-underline">
+                    Meet the Team
+                </a>
+            </div>
+
+            <div class="mt-20 pt-10 border-t border-white/5 grid grid-cols-2 md:grid-cols-4 gap-8 opacity-60">
+                <div>
+                    <h4 class="text-2xl font-bold text-white">9</h4>
+                    <p class="text-xs uppercase tracking-widest text-gray-400">Specialists</p>
+                </div>
+                <div>
+                    <h4 class="text-2xl font-bold text-white">Full Stack</h4>
+                    <p class="text-xs uppercase tracking-widest text-gray-400">Experties    </p>
+                </div>
+                <div>
+                    <h4 class="text-2xl font-bold text-white">100%</h4>
+                    <p class="text-xs uppercase tracking-widest text-gray-400">Scalability</p>
+                </div>
+                <div>
+                    <h4 class="text-2xl font-bold text-white">24/7</h4>
+                    <p class="text-xs uppercase tracking-widest text-gray-400">Support</p>
+                </div>
+                <br>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-24 bg-gray-50 dark:bg-slate-950 transition-colors duration-300">
+        <div class="container mx-auto px-6 flex flex-col items-center">
+        
+            <div class="text-center mb-16">
+                <span class="text-blue-600 font-bold tracking-widest uppercase text-sm mb-3 block">Proven systems delivered by SysProTech</span>
+                <h3 class="text-4xl font-extrabold text-gray-900 tracking-tight dark:text-white">Our Projects</h3>
+                <br>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg dark:text-slate-200">Explore our portfolio of innovative solutions designed to drive your business forward. </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+            
+                <div class="group bg-white dark:bg-slate-900 rounded-[2.5rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:border-slate-800 flex flex-col">
+                    <div class="relative overflow-hidden h-64">
+                        <div class="absolute inset-0 bg-blue-600/10 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+                        <img src="images/Medisched.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="MediSched">
+                        <div class="absolute top-5 left-5 z-20">
+                            <span class="bg-blue-600 text-white text-[10px] uppercase px-3 py-1 rounded-full font-bold shadow-lg">Healthcare Suite</span>
+                        </div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <h5 class="text-2xl font-bold text-gray-900 dark:text-slate-900 mb-3">MediSched Web</h5>
+                        <p class="text-gray-600 dark:text-slate-700 text-sm leading-relaxed mb-6 flex-1">
+                            A specialized patient scheduling ecosystem designed to reduce wait times and streamline clinic bookings through automated slot management.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-gray-100 text-gray-600 dark:bg-slate-800 dark:text-slate-400 px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider">PHP</span>
+                            <span class="bg-gray-100 text-gray-600 dark:bg-slate-800 dark:text-slate-400 px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider">MySQL</span>
+                            <span class="bg-gray-100 text-gray-600 dark:bg-slate-800 dark:text-slate-400 px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider">Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group bg-white dark:bg-slate-900 rounded-[2.5rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:border-slate-800 flex flex-col">
+                    <div class="relative overflow-hidden h-64">
+                        <div class="absolute inset-0 bg-emerald-600/10 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+                        <img src="images/stockinv.PNG" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="StockMaster">
+                        <div class="absolute top-5 left-5 z-20">
+                            <span class="bg-emerald-600 text-white text-[10px] uppercase px-3 py-1 rounded-full font-bold shadow-lg">Enterprise Logic</span>
+                        </div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <h5 class="text-2xl font-bold text-gray-900 dark:text-slate-900 mb-3">StockMaster IMS</h5>
+                        <p class="text-gray-600 dark:text-slate-700 text-sm leading-relaxed mb-6 flex-1">
+                            Comprehensive supply chain tracking featuring real-time stock replenishment alerts and deep analytics for inventory optimization.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-gray-100 text-gray-600 dark:bg-slate-800 dark:text-slate-400 px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider">Full-Stack</span>
+                            <span class="bg-gray-100 text-gray-600 dark:bg-slate-800 dark:text-slate-400 px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider">Tailwind</span>
+                            <span class="bg-gray-100 text-gray-600 dark:bg-slate-800 dark:text-slate-400 px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider">DataViz</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="group bg-white dark:bg-slate-900 rounded-[2.5rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:border-slate-800 flex flex-col">
+                    <div class="relative overflow-hidden h-64 bg-indigo-950">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-indigo-600/40 to-transparent opacity-50 z-10 group-hover:opacity-20 transition-opacity"></div>
+        
+                        <video autoplay muted loop playsinline class="w-full h-full object-cover">
+                            <source src="vid/sulotions.mp4" type="video/mp4">
+                        </video>
+        
+                        <div class="absolute top-5 left-5 z-20">
+                            <span class="bg-indigo-600 text-white text-[10px] uppercase px-3 py-1 rounded-full font-bold shadow-lg animate-pulse">Live Sync Active</span>
+                        </div>
+                    </div>
+    
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="mb-3">
+                            <span class="text-indigo-500 font-black text-[10px] uppercase tracking-[0.2em]">We provide budget-friendly solutions</span>
+                            <h5 class="text-2xl font-bold text-gray-900 dark:text-slate-900 mt-1">What are you waiting for?</h5>
+                        </div>
+        
+                        <p class="text-gray-600 dark:text-slate-700 text-sm leading-relaxed mb-6 flex-1">
+                            From automating complex workflows to building custom dashboards, we create systems that adapt to your unique needs and grow with your business.
+                        </p>
+        
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-indigo-50 text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400 px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider">React Flow</span>
+                            <span class="bg-indigo-50 text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400 px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider">Dynamic API</span>
+                            <span class="bg-indigo-50 text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400 px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider">Auto-Sync</span>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 bg-gray-50 dark:bg-slate-950 transition-colors duration-300">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-blue-600 font-bold tracking-widest uppercase text-sm mb-3 block">Solutions for Success</span>
+                <h3 class="text-4xl font-extrabold text-gray-900 mb-4 tracking-tight dark:text-white">Our Services</h3>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg dark:text-slate-200">Engineered automation by our 9-member specialist team.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+            
+                <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 group dark:bg-slate-800 dark:border-slate-700">
+                    <div class="relative h-52 bg-gray-200 overflow-hidden">
+                        <video autoplay muted loop playsinline class="w-full h-full object-cover">
+                            <source src="vid/tiny.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute bottom-4 left-4 w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white shadow-lg">
+                            <i class="bi bi-cpu text-xl"></i>
+                        </div>
+                    </div>
+
+                    <div class="p-8">
+                        <h4 class="text-xl font-bold mb-3 text-gray-800 dark:text-slate-900">Custom Web Systems</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6 dark:text-slate-700">
+                            We build custom web systems tailored specifically to your business, so every feature and function works exactly the way you need. This ensures your website or platform isn’t just functional—it’s designed to support your goals and make operations smoother.
+                        </p>
+                        <hr class="mb-4 border-gray-100 dark:border-slate-700">
+                        <ul class="text-xs text-gray-700 dark:text-slate-500 space-y-2">
+                            <li class="flex items-center"><i class="bi bi-check2-circle text-blue-500 mr-2 "></i>Automated Reporting</li>
+                            <li class="flex items-center"><i class="bi bi-check2-circle text-blue-500 mr-2"></i>Secure Data Management</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 group dark:bg-slate-800 dark:border-slate-700">
+                    <div class="relative h-52 bg-gray-200 overflow-hidden">
+                        <video autoplay muted loop playsinline class="w-full h-full object-cover">
+                            <source src="vid/bsweb.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute bottom-4 left-4 w-12 h-12 bg-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg">
+                            <i class="bi bi-layers text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-xl font-bold mb-3 text-gray-800 dark:text-slate-900">Responsive Portfolios and Websites</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6 dark:text-slate-700">
+                            We create responsive portfolios and websites that look great and work smoothly on any device, helping businesses showcase their brand, products, and services effectively. Our designs ensure visitors have a seamless experience, whether they’re on a desktop, tablet, or mobile, making it easier to attract and engage customers online.
+                        </p>
+                        <hr class="mb-4 border-gray-100 dark:border-slate-700">
+                        <ul class="text-xs text-gray-700 dark:text-slate-500 space-y-2">
+                            <li class="flex items-center"><i class="bi bi-check2-circle text-indigo-500 mr-2"></i>SEO-Ready Structure</li>
+                            <li class="flex items-center"><i class="bi bi-check2-circle text-indigo-500 mr-2"></i>Fast Loading Speeds</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 group dark:bg-slate-800 dark:border-slate-700">
+                    <div class="relative h-52 bg-gray-200 overflow-hidden">
+                        <video autoplay muted loop playsinline class="w-full h-full object-cover">
+                            <source src="vid/financial.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute bottom-4 left-4 w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center text-white shadow-lg">
+                            <i class="bi bi-graph-up-arrow text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-xl font-bold mb-3 text-gray-800 dark:text-slate-900">Financial Systems</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6 dark:text-slate-700">
+                            We create financial systems that help businesses manage their money more efficiently, from tracking expenses and revenues to generating reports—making financial management simpler, accurate, and more transparent.
+                        </p>
+                        <hr class="mb-4 border-gray-100 dark:border-slate-700">
+                        <ul class="text-xs text-gray-700 dark:text-slate-500 space-y-2">
+                            <li class="flex items-center"><i class="bi bi-check2-circle text-emerald-500 mr-2"></i>Real-Time Analytics</li>
+                            <li class="flex items-center"><i class="bi bi-check2-circle text-emerald-500 mr-2"></i>Customizable Reports</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </section>
+
+    <section id="about" class="py-24 bg-gray-50 overflow-hidden dark:bg-slate-950 transition-colors duration-300">
+        <div class="container mx-auto px-6">
+        
+            <div class="flex flex-col lg:flex-row items-start gap-16 mb-24">
+            
+                <div class="lg:w-7/12">
+                    <div class="inline-block bg-blue-100 text-blue-600 px-4 py-1 rounded-full text-sm font-bold mb-6 uppercase tracking-widest dark:bg-blue-900/30 dark:text-blue-400 transition-colors">
+                        Our Identity
+                    </div>
+                    <h3 class="text-4xl lg:text-5xl font-extrabold text-gray-900 mb-8 leading-tight dark:text-white">
+                        What is <span class="text-blue-600">SysProTech?</span>
+                    </h3>
+                    <p class="text-gray-600 text-lg leading-relaxed mb-10 dark:text-slate-400">
+                        SysProTech is a growing startup made up of 9 skilled specialists based in Manila’s technology hub. We help businesses transition from outdated processes to modern, automated solutions by creating customized and efficient digital systems tailored to their needs.
+                    </p>
+                
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="group bg-white p-6 rounded-2xl border-l-4 border-blue-600 shadow-sm hover:shadow-md transition-all dark:bg-slate-800 dark:border-slate-700">
+                            <h4 class="text-xl font-bold mb-3 text-gray-800 dark:text-white">
+                                <i class="bi bi-rocket-takeoff mr-2 text-blue-600 dark:text-slate-900"> Our Mission </i> 
+                            </h4>
+                            <p class="text-gray-500 leading-relaxed dark:text-slate-700">To build reliable, secure, and easy-to-use systems that help businesses manage their data more effectively as they grow.</p>
+                        </div>
+                        <div class="group bg-white p-6 rounded-2xl border-l-4 border-indigo-600 shadow-sm hover:shadow-md transition-all dark:bg-slate-800 dark:border-slate-700">
+                            <h4 class="text-xl font-bold mb-3 text-gray-800 dark:text-white">
+                                <i class="bi bi-eye mr-2 text-indigo-600 dark:text-slate-900"> Our Vision </i> 
+                            </h4>
+                            <p class="text-gray-500 leading-relaxed dark:text-slate-700">To become a globally recognized leader in custom full-stack development and automated workflow solutions, setting the standard for quality, innovation, and reliability.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:w-5/12 w-full">
+                    <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 relative dark:bg-slate-800 dark:border-slate-700">
+                        <div class="flex items-center justify-between mb-8">
+                            <h4 class="text-xl font-bold mb-3 text-gray-800 dark:text-slate-900">Latest News</h4>
+                            <span class="animate-pulse flex h-3 w-3 rounded-full bg-blue-600"></span>
+                        </div>
+                    
+                        <div class="space-y-8">
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 font-bold dark:bg-slate-700 dark:text-blue-400 transition-colors">
+                                    03/26
+                                </div>
+                                <div>
+                                    <h5 class="text-sm font-bold mb-3 text-gray-800 dark:text-slate-900">Tech Hub Expansion</h5>
+                                    <p class="text-xs text-gray-500 mt-1 dark:text-slate-700">SysProTech officially anchors operations in Manila's tech district to boost local SME automation.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4 border-t border-gray-50 pt-6 dark:border-slate-700">
+                                <div class="flex-shrink-0 w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 font-bold dark:bg-slate-700 dark:text-indigo-400 transition-colors">
+                                    02/26
+                                </div>
+                                <div>
+                                    <h5 class="text-sm font-bold mb-3 text-gray-800 dark:text-slate-900">Framework Optimization</h5>
+                                    <p class="text-xs text-gray-500 mt-1 dark:text-slate-700">Our team achieved a 40% increase in system response times using new React/PHP integration methods.</p>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 border-t border-gray-50 pt-6 dark:border-slate-700">
+                            <div class="flex-shrink-0 w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-600 font-bold dark:bg-slate-700 dark:text-emerald-400 transition-colors">
+                                01/26
+                            </div>
+                            <div>
+                                <h5 class="text-sm font-bold mb-3 text-gray-800 dark:text-slate-900">9 Specialists Onboard</h5>
+                                <p class="text-xs text-gray-500 mt-1 dark:text-slate-700">The core specialist team is now fully operational, covering everything from AI-logic to secure DB management.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="identity" class="py-12 bg-gray-50 dark:bg-slate-950 transition-colors duration-300">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-stretch bg-white rounded-[2.5rem] shadow-xl overflow-hidden border border-gray-100 group dark:bg-slate-800 dark:border-slate-700">
+            
+                    <div class="lg:w-1/2 relative min-h-[400px] lg:min-h-full overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" 
+                            alt="Team Collaboration" 
+                            class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000">
+                
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-900/10 to-transparent"></div>
+
+                        <div class="absolute bottom-6 left-6 bg-blue-600 text-white p-5 rounded-2xl shadow-lg transition-all duration-500 group-hover:bg-blue-700">
+                            <p class="text-4xl font-extrabold leading-none">09</p>
+                            <p class="text-[9px] uppercase font-bold tracking-widest mt-1 opacity-90">Specialist Team</p>
+                        </div>
+                    </div>
+
+                    <div class="lg:w-1/2 p-10 lg:p-16 flex flex-col justify-center">
+                        <div class="mb-6">
+                            <span class="text-blue-600 font-bold uppercase tracking-widest text-xs mb-2 block">Our Approach</span>
+                            <h4 class="text-3xl lg:text-4xl font-black text-gray-900 leading-tight dark:text-slate-900">
+                                Small Team, <br>
+                                <span class="text-blue-600">Massive Impact.</span>
+                            </h4>
+                        </div>
+                
+                        <p class="text-gray-600 leading-relaxed mb-8 dark:text-slate-700">
+                            We work as a small, focused team, giving you direct access to our expert engineers. By keeping things simple and cutting out unnecessary layers, we’re able to deliver clean, high-quality code and solutions that are truly tailored to your business.
+                        </p>
+
+                        <div class="flex flex-wrap gap-2 mb-10">
+                            <span class="bg-gray-50 text-gray-700 px-3 py-1.5 rounded-lg text-xs font-semibold border border-gray-200 dark:bg-slate-700 dark:text-slate-200 dark:border-slate-600">#FullStack</span>
+                            <span class="bg-gray-50 text-gray-700 px-3 py-1.5 rounded-lg text-xs font-semibold border border-gray-200 dark:bg-slate-700 dark:text-slate-200 dark:border-slate-600">#Automation</span>
+                            <span class="bg-gray-50 text-gray-700 px-3 py-1.5 rounded-lg text-xs font-semibold border border-gray-200 dark:bg-slate-700 dark:text-slate-200 dark:border-slate-600">#ManilaTech</span>
+                        </div>
+
+                        <div class="pt-6 border-t border-gray-50 flex items-center gap-3 dark:border-slate-700">
+                            <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center">
+                                <i class="bi bi-geo-alt text-blue-600 text-sm"></i>
+                            </div>
+                            <p class="text-xs font-bold text-gray-500 dark:text-slate-700 uppercase tracking-wide">Technology Hub, Manila</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-choose-us" class="py-24 bg-white dark:bg-slate-900 transition-colors duration-300">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-col lg:flex-row gap-16 items-center">
+            
+                    <div class="lg:w-1/2">
+                        <div class="inline-block bg-blue-100 text-blue-600 px-4 py-1 rounded-full text-xs font-bold mb-6 uppercase tracking-widest dark:bg-blue-900/30 dark:text-blue-800 transition-colors">
+                            The Specialist Advantage
+                        </div>
+                        <h2 class="text-4xl font-black text-gray-900 mb-6 leading-tight dark:text-white">
+                            Why you should partner with <span class="text-blue-600">SysProTech?</span>
+                        </h2>
+                        <p class="text-gray-600 text-lg mb-8 leading-relaxed dark:text-slate-400">
+                            We’re not a big, impersonal agency. We’re a small team of 9 specialists focused on building high-quality digital solutions. When you work with us, you communicate directly with the engineers who are actually creating your system—so everything stays clear, efficient, and aligned with your goals.
+                        </p>
+
+                        <div class="space-y-4 mb-10">
+                            <div class="flex items-start gap-4 p-4 rounded-2xl hover:bg-gray-50 transition-colors dark:hover:bg-slate-800">
+                                <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-blue-200">
+                                    <i class="bi bi-cpu text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 dark:text-white">Tailored Responsiveness</h4>
+                                    <p class="text-sm text-gray-500 dark:text-slate-400">We focus on quickly understanding and responding to each client’s specific needs..</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4 p-4 rounded-2xl hover:bg-gray-50 transition-colors dark:hover:bg-slate-800">
+                                <div class="w-12 h-12 bg-indigo-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-indigo-200">
+                                    <i class="bi bi-shield-lock text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 dark:text-white">Enterprise Security Architecture (ESA)</h4>
+                                    <p class="text-sm text-gray-500 dark:text-slate-400">It’s a complete approach that connects your security plans with your business goals and your overall IT setup, so everything works together smoothly.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="why-choose-us.html" target="_blank" class="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-blue-700 transition-all shadow-xl shadow-blue-200">
+                            Learn More About Our Process <i class="bi bi-box-arrow-up-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="lg:w-1/2 w-full">
+                        <div class="bg-gray-900 rounded-[3rem] p-8 md:p-12 shadow-2xl relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500 opacity-10 rounded-full -mr-20 -mt-20"></div>
+                    
+                            <h3 class="text-2xl font-bold text-white mb-8 flex items-center gap-3">
+                                <span class="w-8 h-1 bg-blue-500 rounded-full"></span>
+                                Automation Solutions
+                            </h3>
+
+                            <div class="space-y-6">
+                                <div class="bg-gray-800/50 p-6 rounded-2xl border border-gray-700">
+                                    <span class="text-blue-400 text-xs font-bold uppercase tracking-widest">Common Problem:</span>
+                                    <p class="text-gray-300 text-sm leading-relaxed"> Inefficient sales and inventory tracking.</p>
+                                    <h5 class="text-white font-bold mt-1 mb-3">What we do:</h5>
+                                    <p class="text-gray-300 text-sm leading-relaxed">
+                                        We design automated POS and inventory systems that track sales and stock levels in real time.
+                                    </p>
+                                </div>
+
+                                <div class="bg-gray-800/50 p-6 rounded-2xl border border-gray-700">
+                                    <span class="text-indigo-400 text-xs font-bold uppercase tracking-widest">Common Problem:</span>
+                                    <p class="text-gray-300 text-sm leading-relaxed"> Security risks and data vulnerabilities.</p>
+                                    <h5 class="text-white font-bold mt-1 mb-3">What we do:</h5>
+                                    <p class="text-gray-300 text-sm leading-relaxed">
+                                        We build secure systems with proper authentication, encryption, and access control to protect business data.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="Team" class="py-24 bg-gray-50 dark:bg-slate-950 transition-colors duration-300">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <span class="text-blue-600 font-bold uppercase tracking-widest text-sm">Our Powerhouse</span>
+                    <h3 class="text-4xl font-extrabold text-gray-900 mt-2 dark:text-white">Meet the Specialists</h3>
+                    <p class="text-gray-500 max-w-2xl mx-auto mt-4 dark:text-slate-300">A multidisciplinary team of 9 experts dedicated to engineering high-performance digital ecosystems.</p>
+                </div>
+
+                <div id="teamCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <!-- Slide 1 (Active) -->
+                        <div class="carousel-item active">
+                            <div class="row g-6 px-4">
+                                <div class="col-md-4">
+                                    <div class="group bg-white rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:bg-slate-800 dark:border-slate-700">
+                                        <div class="relative h-[500px] overflow-hidden bg-gray-200">
+                                            <img src="images/ed.png" alt="Adrian Cerenado" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                        </div>
+                                        <div class="p-8 text-center">
+                                            <h5 class="text-xl font-black text-gray-900 mb-1 dark:text-white">Adrian Cerenado</h5>
+                                            <p class="text-blue-600 font-bold text-sm uppercase tracking-widest">CEO / Strategy Lead</p>
+                                            <div class="flex justify-center gap-3 mt-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                                                <a href="#" class="w-8 h-8 rounded-full bg-blue-50 text-blue-600 dark:bg-slate-700 dark:text-blue-400 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"><i class="bi bi-linkedin text-xs"></i></a>
+                                                <a href="#" class="w-8 h-8 rounded-full bg-gray-50 text-gray-600 dark:bg-slate-700 dark:text-white flex items-center justify-center hover:bg-gray-900 hover:text-white transition-colors"><i class="bi bi-github text-xs"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="group bg-white rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:bg-slate-800 dark:border-slate-700">
+                                        <div class="relative h-[500px] overflow-hidden bg-gray-200">
+                                            <img src="https://ui-avatars.com/api/?name=Conde&background=3b82f6&color=fff&size=512" alt="Daniel Conde" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                        </div>
+                                        <div class="p-8 text-center">
+                                            <h5 class="text-xl font-black text-gray-900 mb-1 dark:text-white">Daniel Conde</h5>
+                                            <p class="text-blue-600 font-bold text-sm uppercase tracking-widest">CTO / Lead Developer</p>
+                                            <div class="flex justify-center gap-3 mt-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                                                <a href="#" class="w-8 h-8 rounded-full bg-blue-50 text-blue-600 dark:bg-slate-700 dark:text-blue-400 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"><i class="bi bi-linkedin text-xs"></i></a>
+                                                <a href="#" class="w-8 h-8 rounded-full bg-gray-50 text-gray-600 dark:bg-slate-700 dark:text-white flex items-center justify-center hover:bg-gray-900 hover:text-white transition-colors"><i class="bi bi-github text-xs"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="group bg-white rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:bg-slate-800 dark:border-slate-700">
+                                        <div class="relative h-[500px] overflow-hidden bg-gray-200">
+                                            <img src="https://ui-avatars.com/api/?name=Tuazon&background=3b82f6&color=fff&size=512" alt="Clarence Tuazon" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                        </div>
+                                        <div class="p-8 text-center">
+                                            <h5 class="text-xl font-black text-gray-900 mb-1 dark:text-white">Clarence Tuazon</h5>
+                                            <p class="text-blue-600 font-bold text-sm uppercase tracking-widest">Frontend Specialist</p>
+                                            <div class="flex justify-center gap-3 mt-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                                                <a href="#" class="w-8 h-8 rounded-full bg-blue-50 text-blue-600 dark:bg-slate-700 dark:text-blue-400 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"><i class="bi bi-linkedin text-xs"></i></a>
+                                                <a href="#" class="w-8 h-8 rounded-full bg-gray-50 text-gray-600 dark:bg-slate-700 dark:text-white flex items-center justify-center hover:bg-gray-900 hover:text-white transition-colors"><i class="bi bi-github text-xs"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="carousel-item">
+                            <div class="row g-6 px-4">
+                                <div class="col-md-4">
+                                    <div class="group bg-white rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:bg-slate-800 dark:border-slate-700">
+                                        <div class="relative h-[500px] overflow-hidden bg-gray-200">
+                                            <img src="https://ui-avatars.com/api/?name=Simblante&background=3b82f6&color=fff&size=512" alt="Antonio Simblante" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                        </div>
+                                        <div class="p-8 text-center">
+                                            <h5 class="text-xl font-black text-gray-900 mb-1 dark:text-white">Antonio Simblante</h5>
+                                            <p class="text-blue-600 font-bold text-sm uppercase tracking-widest">Business Strategist</p>
+                                            <div class="flex justify-center gap-3 mt-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                                                <a href="#" class="w-8 h-8 rounded-full bg-blue-50 text-blue-600 dark:bg-slate-700 dark:text-blue-400 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"><i class="bi bi-linkedin text-xs"></i></a>
+                                                <a href="#" class="w-8 h-8 rounded-full bg-gray-50 text-gray-600 dark:bg-slate-700 dark:text-white flex items-center justify-center hover:bg-gray-900 hover:text-white transition-colors"><i class="bi bi-github text-xs"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="group bg-white rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:bg-slate-800 dark:border-slate-700">
+                                        <div class="relative h-[500px] overflow-hidden bg-gray-200">
+                                            <img src="https://ui-avatars.com/api/?name=Rausa&background=3b82f6&color=fff&size=512" alt="Amir Rausa" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                        </div>
+                                        <div class="p-8 text-center">
+                                            <h5 class="text-xl font-black text-gray-900 mb-1 dark:text-white">Amir Rausa</h5>
+                                            <p class="text-blue-600 font-bold text-sm uppercase tracking-widest">Backend & Data Security</p>
+                                            <div class="flex justify-center gap-3 mt-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                                                <a href="#" class="w-8 h-8 rounded-full bg-blue-50 text-blue-600 dark:bg-slate-700 dark:text-blue-400 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"><i class="bi bi-linkedin text-xs"></i></a>
+                                                <a href="#" class="w-8 h-8 rounded-full bg-gray-50 text-gray-600 dark:bg-slate-700 dark:text-white flex items-center justify-center hover:bg-gray-900 hover:text-white transition-colors"><i class="bi bi-github text-xs"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="group bg-white rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:bg-slate-800 dark:border-slate-700">
+                                        <div class="relative h-[500px] overflow-hidden bg-gray-200">
+                                            <img src="https://ui-avatars.com/api/?name=Villanueva&background=3b82f6&color=fff&size=512" alt="Jeff Raven Villanueva" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                        </div>
+                                        <div class="p-8 text-center">
+                                            <h5 class="text-xl font-black text-gray-900 mb-1 dark:text-white">Jeff Raven Villanueva</h5>
+                                            <p class="text-blue-600 font-bold text-sm uppercase tracking-widest">Business Development</p>
+                                            <div class="flex justify-center gap-3 mt-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                                                <a href="#" class="w-8 h-8 rounded-full bg-blue-50 text-blue-600 dark:bg-slate-700 dark:text-blue-400 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"><i class="bi bi-linkedin text-xs"></i></a>
+                                                <a href="#" class="w-8 h-8 rounded-full bg-gray-50 text-gray-600 dark:bg-slate-700 dark:text-white flex items-center justify-center hover:bg-gray-900 hover:text-white transition-colors"><i class="bi bi-github text-xs"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="carousel-item">
+                            <div class="row g-6 px-4">
+                                <div class="col-md-4">
+                                    <div class="group bg-white rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:bg-slate-800 dark:border-slate-700">
+                                        <div class="relative h-[500px] overflow-hidden bg-gray-200">
+                                            <img src="https://ui-avatars.com/api/?name=Navarro&background=3b82f6&color=fff&size=512" alt="Gericho Navarro" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                        </div>
+                                        <div class="p-8 text-center">
+                                            <h5 class="text-xl font-black text-gray-900 mb-1 dark:text-white">Gericho Navarro</h5>
+                                            <p class="text-blue-600 font-bold text-sm uppercase tracking-widest">Product Implementation</p>
+                                            <div class="flex justify-center gap-3 mt-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                                                <a href="#" class="w-8 h-8 rounded-full bg-blue-50 text-blue-600 dark:bg-slate-700 dark:text-blue-400 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"><i class="bi bi-linkedin text-xs"></i></a>
+                                                <a href="#" class="w-8 h-8 rounded-full bg-gray-50 text-gray-600 dark:bg-slate-700 dark:text-white flex items-center justify-center hover:bg-gray-900 hover:text-white transition-colors"><i class="bi bi-github text-xs"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="group bg-white rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:bg-slate-800 dark:border-slate-700">
+                                        <div class="relative h-[500px] overflow-hidden bg-gray-200">
+                                            <img src="https://ui-avatars.com/api/?name=Nablea&background=3b82f6&color=fff&size=512" alt="Romulo Nablea" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                        </div>
+                                        <div class="p-8 text-center">
+                                            <h5 class="text-xl font-black text-gray-900 mb-1 dark:text-white">Romulo Nablea</h5>
+                                            <p class="text-blue-600 font-bold text-sm uppercase tracking-widest">Quality Assurance</p>
+                                            <div class="flex justify-center gap-3 mt-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                                                <a href="#" class="w-8 h-8 rounded-full bg-blue-50 text-blue-600 dark:bg-slate-700 dark:text-blue-400 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"><i class="bi bi-linkedin text-xs"></i></a>
+                                                <a href="#" class="w-8 h-8 rounded-full bg-gray-50 text-gray-600 dark:bg-slate-700 dark:text-white flex items-center justify-center hover:bg-gray-900 hover:text-white transition-colors"><i class="bi bi-github text-xs"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="group bg-white rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:bg-slate-800 dark:border-slate-700">
+                                        <div class="relative h-[500px] overflow-hidden bg-gray-200">
+                                            <img src="https://ui-avatars.com/api/?name=Morales&background=3b82f6&color=fff&size=512" alt="Arjay Morales" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                        </div>
+                                        <div class="p-8 text-center">
+                                            <h5 class="text-xl font-black text-gray-900 mb-1 dark:text-white">Arjay Morales</h5>
+                                            <p class="text-blue-600 font-bold text-sm uppercase tracking-widest">Client Relations</p>
+                                            <div class="flex justify-center gap-3 mt-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                                                <a href="#" class="w-8 h-8 rounded-full bg-blue-50 text-blue-600 dark:bg-slate-700 dark:text-blue-400 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"><i class="bi bi-linkedin text-xs"></i></a>
+                                                <a href="#" class="w-8 h-8 rounded-full bg-gray-50 text-gray-600 dark:bg-slate-700 dark:text-white flex items-center justify-center hover:bg-gray-900 hover:text-white transition-colors"><i class="bi bi-github text-xs"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-24 bg-[#0f172a]">
+            <div class="container mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h3 class="text-4xl font-extrabold mb-6 text-white">Let's Build Your <span class="text-blue-600">Future.</span></h3>
+                        <p class="text-slate-400 mb-8 text-lg">Ready to automate your workflow? Our 9-member specialist team is ready to engineer your solution.</p>
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-blue-500/10 rounded-full flex items-center justify-center text-blue-400"><i class="bi bi-geo-alt"></i></div>
+                                <p class="text-slate-300 font-medium">Technology Hub, Manila, Philippines</p>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-blue-500/10 rounded-full flex items-center justify-center text-blue-400"><i class="bi bi-envelope"></i></div>
+                                <p class="text-slate-300 font-medium">solutions@sysprotech.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-[#1e293b] p-8 rounded-3xl shadow-xl border border-slate-700/50">
+                        <form action="submit-inquiry.php" method="POST" class="space-y-4">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <input type="text" name="name" required placeholder="Your Name" class="w-full bg-[#0f172a] border border-slate-700 text-white placeholder-slate-500 py-3 px-4 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all">
+                                <input type="email" name="email" required placeholder="Email Address" class="w-full bg-[#0f172a] border border-slate-700 text-white placeholder-slate-500 py-3 px-4 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all">
+                                <input type="tel" name="phone" placeholder="Contact Number" class="w-full bg-[#0f172a] border border-slate-700 text-white placeholder-slate-500 py-3 px-4 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all md:col-span-2">
+                            </div>
+                            <input type="text" name="subject" required placeholder="Subject" class="w-full bg-[#0f172a] border border-slate-700 text-white placeholder-slate-500 py-3 px-4 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all">
+                            <textarea name="message" required rows="4" placeholder="How can we help you?" class="w-full bg-[#0f172a] border border-slate-700 text-white placeholder-slate-500 py-3 px-4 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all"></textarea>
+                            <button type="submit" class="w-full bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition-all shadow-lg hover:shadow-blue-200">Send Message <i class="bi bi-send ml-2"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="feedback" class="py-24 bg-[#0f172a] border-t border-slate-800">
+            <div class="container mx-auto px-6 max-w-4xl text-center">
+                <span class="text-blue-600 font-bold uppercase tracking-widest text-sm">Your Voice Matters</span>
+                <h3 class="text-3xl font-extrabold text-white mt-2 mb-8">Send Us Your Feedback</h3>
+                <div class="bg-[#1e293b] rounded-3xl p-8 border border-slate-700/50 shadow-sm">
+                    <form action="submit-feedback.php" method="POST" class="max-w-xl mx-auto space-y-4">
+                        <input type="text" name="name" placeholder="Your Name (Optional)" class="w-full bg-[#0f172a] border border-slate-700 text-white placeholder-slate-500 py-3 px-4 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all">
+                        <textarea name="message" required rows="3" placeholder="Tell us what you think..." class="w-full bg-[#0f172a] border border-slate-700 text-white placeholder-slate-500 py-3 px-4 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all"></textarea>
+                        <button type="submit" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-xl hover:bg-blue-700 transition shadow-lg w-full md:w-auto">Submit Feedback</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <footer class="py-24 bg-[#0f172a] text-white border-t border-slate-800">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-16">
+                    <div class="space-y-6">
+                        <a href="#" class="inline-flex items-center gap-3 no-underline group">
+                            <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-900/20 group-hover:bg-blue-500 transition-all"><i class="bi bi-cpu text-white text-2xl"></i></div>
+                            <span class="text-3xl font-black tracking-tighter"><span class="text-blue-500">SysPro</span>Tech</span>
+                        </a>
+                        <p class="text-gray-500 text-sm leading-relaxed max-w-xs">Engineering high-performance digital ecosystems through a boutique strike-force of 9 specialists.</p>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-white mb-8 uppercase tracking-widest text-xs">Quick Links</h5>
+                        <ul class="space-y-4 p-0 list-none">
+                            <li><a href="#services" class="text-sm text-gray-400 hover:text-blue-500 transition-colors no-underline">Automation Systems</a></li>
+                            <li><a href="#services" class="text-sm text-gray-400 hover:text-blue-500 transition-colors no-underline">Custom PHP Solutions</a></li>
+                            <li><a href="#team" class="text-sm text-gray-400 hover:text-blue-500 transition-colors no-underline">Meet the Specialists</a></li>
+                            <li><a href="why-choose-us.html" target="_blank" class="text-sm text-gray-400 hover:text-blue-500 transition-colors no-underline">Why Choose Us?</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-white mb-8 uppercase tracking-widest text-xs">Our Identity</h5>
+                        <ul class="space-y-4 p-0 list-none">
+                            <li><a href="#about" class="text-sm text-gray-400 hover:text-blue-500 transition-colors no-underline">Manila Tech Hub</a></li>
+                            <li><a href="#about" class="text-sm text-gray-400 hover:text-blue-500 transition-colors no-underline">What is SysProTech?</a></li>
+                            <li><a href="#identity" class="text-sm text-gray-400 hover:text-blue-500 transition-colors no-underline">Small Team Advantage</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-white mb-8 uppercase tracking-widest text-xs">Get in Touch</h5>
+                        <ul class="space-y-4 p-0 list-none">
+                            <li><a href="#contact" class="text-sm text-gray-400 hover:text-blue-500 transition-colors no-underline">Become a Partner</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row items-center justify-between gap-8 pt-10 border-t border-white/5">
+                    <a href="#contact" class="inline-flex items-center gap-2 bg-white/5 text-white font-bold py-3 px-8 rounded-xl border border-white/10 hover:bg-white/10 hover:border-blue-500/50 transition-all no-underline text-sm group">
+                        Request a Consultation <i class="bi bi-send-fill text-blue-500 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <div class="flex items-center gap-3">
+                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 text-gray-400 hover:bg-blue-600 hover:text-white transition-all"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 text-gray-400 hover:bg-gray-800 hover:text-white transition-all"><i class="bi bi-github"></i></a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 text-gray-400 hover:bg-emerald-600 hover:text-white transition-all"><i class="bi bi-envelope-check-fill"></i></a>
+                    </div>
+                </div>
+                <div class="mt-12 text-center">
+                    <p class="text-[10px] text-gray-500 uppercase tracking-[0.2em]">© 2026 SysProTech Specialists. All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            const html = document.documentElement;
+            const themeBtn = document.getElementById('darkModeToggle');
+
+            function updateTheme(isDark) {
+                if (isDark) {
+                    html.classList.add('dark');
+                    html.setAttribute('data-bs-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    html.classList.remove('dark');
+                    html.setAttribute('data-bs-theme', 'light');
+                    localStorage.setItem('theme', 'light');
+                }
+            }
+
+            if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                updateTheme(true);
+            } else {
+                updateTheme(false);
+            }
+
+            themeBtn.addEventListener('click', () => {
+                updateTheme(!html.classList.contains('dark'));
+            });
+
+            // Mobile Menu Toggle
+            const menuBtn = document.getElementById('mobileMenuBtn');
+            const menuIcon = document.getElementById('hamburgerIcon');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            if(menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    menuIcon.classList.toggle('open');
+                });
+
+                // Close menu when clicking a link
+                document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        menuIcon.classList.remove('open');
+                    });
+                });
+            }
+        </script>
+</body>
+</html>
